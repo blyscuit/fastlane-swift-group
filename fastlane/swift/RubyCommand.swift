@@ -11,7 +11,7 @@
 import Foundation
 
 public struct RubyCommand: RubyCommandable {
-    var type: CommandType { return .action }
+    public var type: CommandType { return .action }
 
     public struct Argument {
         public enum ArgType {
@@ -26,7 +26,7 @@ public struct RubyCommand: RubyCommandable {
         }
 
         let name: String
-        let value: Any?
+        public let value: Any?
         let type: ArgType?
 
         public init(name: String, value: Any?, type: ArgType? = nil) {
@@ -76,7 +76,19 @@ public struct RubyCommand: RubyCommandable {
     let methodName: String
     let className: String?
     let args: [Argument]
-    let id: String = UUID().uuidString
+    public let id: String = UUID().uuidString
+
+    public init(
+        commandID: String, 
+        methodName: String,
+        className: String?, 
+        args: [Argument]
+    ) {
+        self.commandID = commandID
+        self.methodName = methodName
+        self.className = className
+        self.args = args
+    }
 
     var closure: ((String) -> Void)? {
         let callbacks = args.filter { ($0.type != nil) && $0.type == .stringClosure }
@@ -121,7 +133,7 @@ public struct RubyCommand: RubyCommandable {
         completion()
     }
 
-    var commandJson: String {
+    public var commandJson: String {
         let argsArrayJson = args
             .map { $0.json }
             .filter { $0 != "" }
