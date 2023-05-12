@@ -10,15 +10,15 @@
 
 import Foundation
 
-let logger: Logger = .init()
+public var logger: Logger = .init()
 
-let runner: Runner = .init()
+public var runner: Runner = .init()
 
 func desc(_: String) {
     // no-op, this is handled in fastlane/lane_list.rb
 }
 
-class Runner {
+public class Runner {
     private var thread: Thread!
     private var socketClient: SocketClient!
     private let dispatchGroup = DispatchGroup()
@@ -212,7 +212,7 @@ extension Runner: SocketClientDelegateProtocol {
     }
 }
 
-class Logger {
+public class Logger {
     enum LogMode {
         init(logMode: String) {
             switch logMode {
