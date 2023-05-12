@@ -10,11 +10,11 @@
 
 import Foundation
 
-struct RubyCommand: RubyCommandable {
+public struct RubyCommand: RubyCommandable {
     var type: CommandType { return .action }
 
-    struct Argument {
-        enum ArgType {
+    public struct Argument {
+        public enum ArgType {
             case stringClosure
 
             var typeString: String {
@@ -29,7 +29,7 @@ struct RubyCommand: RubyCommandable {
         let value: Any?
         let type: ArgType?
 
-        init(name: String, value: Any?, type: ArgType? = nil) {
+        public init(name: String, value: Any?, type: ArgType? = nil) {
             self.name = name
             self.value = value
             self.type = type

@@ -12,13 +12,13 @@ import Foundation
 
 let logger: Logger = .init()
 
-let runner: Runner = .init()
+public let runner: Runner = .init()
 
 func desc(_: String) {
     // no-op, this is handled in fastlane/lane_list.rb
 }
 
-class Runner {
+public class Runner {
     private var thread: Thread!
     private var socketClient: SocketClient!
     private let dispatchGroup = DispatchGroup()
