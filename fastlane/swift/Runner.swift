@@ -213,8 +213,8 @@ extension Runner: SocketClientDelegateProtocol {
 }
 
 public class Logger {
-    enum LogMode {
-        init(logMode: String) {
+    public enum LogMode {
+        public init(logMode: String) {
             switch logMode {
             case "normal", "default":
                 self = .normal
