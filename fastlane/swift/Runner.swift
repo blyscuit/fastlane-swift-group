@@ -33,7 +33,7 @@ public class Runner {
         }
     }()
 
-    func executeCommand(_ command: RubyCommandable) -> String {
+    public func executeCommand(_ command: RubyCommandable) -> String {
         dispatchGroup.enter()
         currentlyExecutingCommand = command
         socketClient.send(rubyCommand: command)
