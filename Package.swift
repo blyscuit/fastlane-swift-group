@@ -15,7 +15,7 @@ let package = Package(
             name: "Fastlane",
             dependencies: ["SwiftShell"],
             path: "./fastlane/swift",
-            exclude: ["Actions.swift", "Plugins.swift", "main.swift", "formatting", "FastlaneSwiftRunner"]
+            exclude: ["Actions.swift", "main.swift", "formatting", "FastlaneSwiftRunner"]
         ),
     ],
     swiftLanguageVersions: [4]
